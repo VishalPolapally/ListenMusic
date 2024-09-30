@@ -4,9 +4,19 @@ import requests
 import re
 import bcrypt
 import os
+from urllib.parse import quote_plus
 
 # Initialize MongoDB client
-client = MongoClient('mongodb://localhost:27017/')
+# Initialize MongoDB client
+username = 'saivishalpolapally02'
+password = 'vishal@02'  # Ensure to use your actual password
+
+# URL-encode the username and password
+encoded_username = quote_plus(username)
+encoded_password = quote_plus(password)
+
+# Construct the connection string
+client = MongoClient(f'mongodb+srv://{encoded_username}:{encoded_password}@listentomusic.dh21e.mongodb.net/?retryWrites=true&w=majority&appName=ListenToMusic')
 db = client['music']
 users_collection = db['users']
 liked_songs_collection = db['liked_songs']
@@ -15,8 +25,8 @@ search_history_collection = db['search_history']
 downloaded_songs_collection = db['downloaded_songs']  # New collection for downloaded songs
 
 # Spotify API setup
-API_ENDPOINT = 'https://v1.nocodeapi.com/vigneshgoud/spotify/slmMZitLKMHvByQx'
-API_KEY = os.getenv('SPOTIFY_API_KEY', 'slmMZitLKMHvByQx')
+API_ENDPOINT = 'https://v1.nocodeapi.com/vigneshgoud/spotify/TJXsUuxRHetibVDI'
+API_KEY = os.getenv('SPOTIFY_API_KEY', 'TJXsUuxRHetibVDI')
 
 # Function to hash passwords
 def hash_password(password):
