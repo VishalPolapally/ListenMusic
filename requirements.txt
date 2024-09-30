@@ -1,0 +1,4 @@
+streamlit
+pymongo>=4.3.0
+requests
+bcrypt
