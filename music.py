@@ -150,7 +150,7 @@ if not st.session_state.user_logged_in:
     body {
         background-color: #1DB954;  /* Spotify green */
         color: white;
-        font-family: 'Arial', sans-serif;
+        font-family: 'Arial', sans-serif;ei
     }
     .title {
         text-align: center;
